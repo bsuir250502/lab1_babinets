@@ -19,16 +19,17 @@ int main(char *argv[])
     };
     stud[3].f_name="Fam3";
     stud[4].f_name="Fam4";*/
+    stud_name stud[n];
     
     for(i=0; i<n; i++)
     {
-        puts("Enter %d student's first name", i);
+        printf("Enter %d student's first name", i);
         gets(stud[i].f_name);
-        puts("Enter %d student's name", i);
+        printf("Enter %d student's name", i);
         gets(stud[i].name);
-        puts("Enter %d student's", i);
+        printf("Enter %d student's", i);
         gets(stud[i].patr);
-        puts("Enter %d student semestr", i);
+        printf("Enter %d student semestr", i);
         scanf_s("%d", &stud[i].sem);
     }
     puts("Enter semestr");
@@ -36,7 +37,7 @@ int main(char *argv[])
     system("cls");
     for(i=0; i<n; i++)
     {
-        if(sem==stud[i].sem)
+        if(sem==stud[i].sem);
     }
     puts("Comming soon...");
     return 0;
