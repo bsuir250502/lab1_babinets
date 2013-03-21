@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#define n 5
 
 struct stud_name
 {
@@ -7,17 +8,19 @@ struct stud_name
     int sem;
 }
 
-int main()
+int main(char *argv[])
 {
-    int i;
-    stud_name stud[5];
-    stud[0].f_name="Ivanov";
-    stud[1].f_name="Petrov";
-    stud[2].f_name="Sidorov";
+    int i, sem;
+    /*stud_name stud[n]=
+    {
+        {"Ivanov", "Ivan", "Ivanovich", 1},
+        {"Petrov", "Petr", "Petrovich", 1},
+        {"Sidorov", "Pavel", "Andreevich", 1}
+    };
     stud[3].f_name="Fam3";
-    stud[4].f_name="Fam4";
-	
-    for(i=0; i<5; i++)
+    stud[4].f_name="Fam4";*/
+    
+    for(i=0; i<n; i++)
     {
         puts("Enter %d student's first name", i);
         gets(stud[i].f_name);
@@ -25,8 +28,15 @@ int main()
         gets(stud[i].name);
         puts("Enter %d student's", i);
         gets(stud[i].patr);
-        puts("Enter %d semestr", i);
+        puts("Enter %d student semestr", i);
         scanf_s("%d", &stud[i].sem);
+    }
+    puts("Enter semestr");
+    scanf_s("%d", &sem);
+    system("cls");
+    for(i=0; i<n; i++)
+    {
+        if(sem==stud[i].sem)
     }
     puts("Comming soon...");
     return 0;
