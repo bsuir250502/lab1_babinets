@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define n 5
+#define num_of_stud 5
 
 typedef struct 
 {
-    char f_name[20], name[15], patr[15];
+    char surname[20], name[15], patr[15];
     int sem;
 } stud_name;
 
@@ -18,27 +18,22 @@ typedef union
 {
 	exam sem1[20];
 	exam sem2[20];
-} sem;
+} sem;	
 
 typedef struct
 {
-	stud_name name;
-	sem sem;
-} info;
-	
+	stud_name student;
+	sem exams;
+} marks[num_of_stud];	
+
+void ins_stud_names();
 
 int main(char *argv[])
 {
+	char name_of_exams[][]= {"Math, Arithmetics, Programming",
+							"Math, Programming, Physics, English"};
     int i, sem;
-    /*stud_name stud[n]=
-    {
-        {"Ivanov", "Ivan", "Ivanovich", 1},
-        {"Petrov", "Petr", "Petrovich", 1},
-        {"Sidorov", "Pavel", "Andreevich", 1}
-    };
-    stud[3].f_name="Fam3";
-    stud[4].f_name="Fam4";*/
-    info stud[n];
+
     
     for(i=0; i<n; i++)
     {
@@ -60,4 +55,23 @@ int main(char *argv[])
     }
     puts("Comming soon...");
     return 0;
+}
+
+void ins_stud_names()
+{
+	marks[0].student.surname
+	marks[0].student.name
+	marks[0].student.patr
+	marks[1].student.surname
+	marks[1].student.name
+	marks[1].student.patr
+	marks[2].student.surname
+	marks[2].student.name
+	marks[2].student.patr
+	marks[3].student.surname
+	marks[3].student.name
+	marks[3].student.patr
+	marks[4].student.surname
+	marks[4].student.name
+	marks[4].student.patr
 }
