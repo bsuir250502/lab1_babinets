@@ -14,7 +14,7 @@ typedef struct
 typedef union
 {
 	int sem1_marks[4];
-	exam sem2_marks[4];
+	int sem2_marks[4];
 } sem;	
 
 typedef struct
