@@ -2,11 +2,30 @@
 #include <stdlib.h>
 #define n 5
 
-struct stud_name
+typedef struct 
 {
     char f_name[20], name[15], patr[15];
     int sem;
-}
+} stud_name;
+
+typedef struct
+{
+	int exam_number;
+	int mark;
+} exam;
+
+typedef union
+{
+	exam sem1[20];
+	exam sem2[20];
+} sem;
+
+typedef struct
+{
+	stud_name name;
+	sem sem;
+} info;
+	
 
 int main(char *argv[])
 {
@@ -19,18 +38,18 @@ int main(char *argv[])
     };
     stud[3].f_name="Fam3";
     stud[4].f_name="Fam4";*/
-    stud_name stud[n];
+    info stud[n];
     
     for(i=0; i<n; i++)
     {
         printf("Enter %d student's first name", i);
-        gets(stud[i].f_name);
+        fgets(stud[i].name.f_name, 20, stdin);
         printf("Enter %d student's name", i);
-        gets(stud[i].name);
+        fgets(stud[i].name.name, 15, stdin);
         printf("Enter %d student's", i);
-        gets(stud[i].patr);
+        fgets(stud[i].name.patr, 15, stdin);
         printf("Enter %d student semestr", i);
-        scanf_s("%d", &stud[i].sem);
+        fgets("%d", &stud[i].name.sem);
     }
     puts("Enter semestr");
     scanf_s("%d", &sem);
