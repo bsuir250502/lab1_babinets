@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+
+#define num_of_stud 5
+#define num_of_sem1_exams 5
 #define num_of_stud 5
 
 typedef struct 
@@ -8,16 +11,10 @@ typedef struct
     int sem;
 } stud_name;
 
-typedef struct
-{
-	int exam_number;
-	int mark;
-} exam;
-
 typedef union
 {
-	exam sem1[20];
-	exam sem2[20];
+	int sem1_marks[4];
+	exam sem2_marks[4];
 } sem;	
 
 typedef struct
@@ -25,24 +22,25 @@ typedef struct
 	stud_name student;
 	sem exams;
 } marks[num_of_stud];	
+marks[i].exams.sem1_marks
 
 void ins_stud_names();
 
 int main(char *argv[])
 {
-	char name_of_exams[][]= {"Math, Arithmetics, Programming",
+	char name_of_exams[2][36]= {"Math, Arithmetics, Programming",
 							"Math, Programming, Physics, English"}, tmp;
     int i, sem;
 
     
-    for(i=0; i<n; i++)
+    for(i=0; i<num_of_stud; i++)
     {
         /*printf("Enter %d student's first name", i);
-        fgets(stud[i].name.f_name, 20, stdin);
+        fgets(marks[i].student.f_name, 20, stdin);
         printf("Enter %d student's name", i);
-        fgets(stud[i].name.name, 15, stdin);
+        fgets(marks[i].student.name, 15, stdin);
         printf("Enter %d student's", i);
-        fgets(stud[i].name.patr, 15, stdin);*/
+        fgets(marks[i].student.patr, 15, stdin);*/
 		printf("Enter %d student semestr", i);
 		while(1)
 		{
@@ -50,17 +48,28 @@ int main(char *argv[])
 			if(atoi(tmp)<1 || atoi(tmp)>2) puts("Enter correct semestr number!");
 			else 
 			{
-				stud[i].name.sem=atoi(tmp);
+				marks[i].student.sem=atoi(tmp);
 				break;
 			}
 		}
     }
-    puts("Enter semestr");
-    scanf_s("%d", &sem);
-    system("cls");
-    for(i=0; i<n; i++)
+    printf("Enter semestr: ");
+    while(1)
+	{
+		fgets(tmp, 1, stdin);
+		if(atoi(tmp)<1 || atoi(tmp)>2) puts("Enter correct semestr number!");
+		else 
+		{
+			sem=atoi(tmp);
+			break;
+		}
+	}
+	printf("Exams: %s\n", name_of_exams[sem]);
+    for(i=0; i<num_of_stud; i++)
     {
-        if(sem==stud[i].sem);
+        if(sem==marks[i].student.sem) 
+		{
+			printf("Name: %s %s %s, marks: ", marks[i].student.surname, marks[i].student.name, marks[i].student.patr);
     }
     puts("Comming soon...");
     return 0;
