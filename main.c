@@ -2,8 +2,8 @@
 #include <stdlib.h>
 
 #define num_of_stud 5
-#define num_of_sem1_exams 5
-#define num_of_stud 5
+#define num_of_sem1_exams 3
+#define num_of_sem2_exams 4
 
 typedef struct 
 {
@@ -13,8 +13,8 @@ typedef struct
 
 typedef union
 {
-	int sem1_marks[4];
-	int sem2_marks[4];
+	int sem1_marks[num_of_sem1_exams];
+	int sem2_marks[num_of_sem1_exams];
 } sem;	
 
 typedef struct
