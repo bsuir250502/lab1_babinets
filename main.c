@@ -86,10 +86,10 @@ int main(char *argv[])
 
 /*char ins_stud_names()
 {
-	marks[0].student.surname="Ivanov";
-	marks[0].student.name="Ivan";
+    marks[0].student.surname="Ivanov";
+    marks[0].student.name="Ivan";
 	marks[0].student.patr="Ivanovich";
-	marks[1].student.surname="Petrov";
+    marks[1].student.surname="Petrov";
 	marks[1].student.name="Petr";
 	marks[1].student.patr="Petrovich";
 	marks[2].student.surname="Sidorov";
