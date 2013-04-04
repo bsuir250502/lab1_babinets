@@ -43,7 +43,8 @@ int main(char *argv[])
         printf("Enter %d student's", i);
         fgets(marks[i].student.patr, 15, stdin);*/
         printf("Enter %d student semester", i);
-        while(1)
+		scan_int("\n", 4, 1, 2);
+        /*while(1)
         {
             fgets(tmp, 4, stdin);
             if(atoi(tmp)<1 || atoi(tmp)>2) puts("Enter correct semestr number!");
@@ -52,9 +53,10 @@ int main(char *argv[])
                 marks[i].student.sem=atoi(tmp);
                 break;
             }
-        }
+        }*/
     }
-    printf("Enter semester: ");
+	scan_int("Enter semestr: ", 4, 1, 2);
+    /*printf("Enter semester: ");
     while(1)
     {
         fgets(tmp, 4, stdin);
@@ -64,7 +66,7 @@ int main(char *argv[])
             sem=atoi(tmp);
             break;
         }
-    }
+    }*/
     printf("Exams: %s\n", name_of_exams[sem]);
     for(i=0; i<num_of_stud; i++)
     {

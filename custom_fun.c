@@ -1,14 +1,15 @@
 #include <stdio.h>
 
-int scan_int(char *message, int min, int max)
+int scan_int(char *message, int buffer int min, int max)
 {
-    char input[100];
+    char input[buffer];
+	int num
     printf("%s ", message);
     while(1)
     {
-        fgets(input, 100, stdin);
-        if(atoi(input)<min || atoi(input)>max) puts("Enter correct number! Retry...");
-        else return atoi(input);
+        fgets(input, buffer, stdin);
+        if(num=atoi(input)<min || num>max) puts("Enter correct number! Retry...");
+        else return num;
     }
-    return -1;
+    return 401;
 }
