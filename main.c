@@ -25,9 +25,15 @@ typedef struct stud_info
 
 
 char ins_stud_names();
+void help();
 
 int main(char *argv[])
 {
+	switch(argv[1])
+	{
+		case -h: help(); break;
+		case -l: break;
+		default: help();
     char name_of_exams[2][36]= {"Math, Arithmetics, Programming",
                             "Math, Programming, Physics, English"}, *tmp;
     int i, j, sem;
@@ -37,7 +43,7 @@ int main(char *argv[])
     for(i=0; i<num_of_stud; i++)
     {
         /*printf("Enter %d student's first name", i);
-        fgets(marks[i].student.f_name, 20, stdin);
+        fgets(marks[i].student.surname, 20, stdin);
         printf("Enter %d student's name", i);
         fgets(marks[i].student.name, 15, stdin);
         printf("Enter %d student's", i);
@@ -85,6 +91,10 @@ int main(char *argv[])
     
     return 0;
 }
+
+void help()
+{
+	printf("Lab1, var1. Usage:\n    -h  -  prints this message.\n    -l  -  exec program\a");
 
 /*char ins_stud_names()
 {
