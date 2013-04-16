@@ -11,5 +11,5 @@ int scan_int(char *message, int buffer int min, int max)
         if(num=atoi(input)<min || num>max) puts("Enter correct number! Retry...");
         else return num;
     }
-    return 401;
+    return -1;
 }
