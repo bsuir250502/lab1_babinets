@@ -29,11 +29,27 @@ void help();
 
 int main(char *argv[])
 {
+    marks[0].student.surname="Ivanov";
+    marks[0].student.name="Ivan";
+    marks[0].student.patr="Ivanovich";
+    marks[1].student.surname="Petrov";
+    marks[1].student.name="Petr";
+    marks[1].student.patr="Petrovich";
+    marks[2].student.surname="Sidorov";
+    marks[2].student.name="Ivan";
+    marks[2].student.patr="Pavlovich";
+    marks[3].student.surname="Mojako";
+    marks[3].student.name="Anton";
+    marks[3].student.patr="Vladimirovich";
+    marks[4].student.surname="Sheleg";
+    marks[4].student.name="Nikolay";
+    marks[4].student.patr="Borisovich";
 	switch(argv[1])
 	{
 		case -h: help(); break;
 		case -l: break;
 		default: help();
+	}
     char name_of_exams[2][36]= {"Math, Arithmetics, Programming",
                             "Math, Programming, Physics, English"}, *tmp;
     int i, j, sem;
@@ -95,22 +111,5 @@ int main(char *argv[])
 void help()
 {
 	printf("Lab1, var1. Usage:\n    -h  -  prints this message.\n    -l  -  exec program\a");
-
-/*char ins_stud_names()
-{
-    marks[0].student.surname="Ivanov";
-    marks[0].student.name="Ivan";
-    marks[0].student.patr="Ivanovich";
-    marks[1].student.surname="Petrov";
-    marks[1].student.name="Petr";
-    marks[1].student.patr="Petrovich";
-    marks[2].student.surname="Sidorov";
-    marks[2].student.name="Ivan";
-    marks[2].student.patr="Pavlovich";
-    marks[3].student.surname="Mojako";
-    marks[3].student.name="Anton";
-    marks[3].student.patr="Vladimirovich";
-    marks[4].student.surname="Sheleg";
-    marks[4].student.name="Nikolay";
-    marks[4].student.patr="Borisovich";
-}*/
+	exit(1)
+}
