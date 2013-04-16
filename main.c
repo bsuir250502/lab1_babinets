@@ -110,6 +110,6 @@ int main(char *argv[])
 
 void help()
 {
-	printf("Lab1, var1. Usage:\n    -h  -  prints this message.\n    -l  -  exec program\a");
+	printf("Lab1, var1. Usage:\n    -h  -  prints this message.\n    -l1 or -l2  -  exec program and print info about first or second semester\a");
 	exit(1)
 }
