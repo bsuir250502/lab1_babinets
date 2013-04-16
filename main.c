@@ -47,7 +47,7 @@ int main(char *argv[])
 	switch(argv[1])
 	{
 		case -h: help(); break;
-		case -l: break;
+		case -l: if(argv[2]<1 || argv[2]>2) exit(20); break;
 		default: help();
 	}
     char name_of_exams[2][36]= {"Math, Arithmetics, Programming",
@@ -110,6 +110,6 @@ int main(char *argv[])
 
 void help()
 {
-	printf("Lab1, var1. Usage:\n    -h  -  prints this message.\n    -l1 or -l2  -  exec program and print info about first or second semester\a");
+	printf("Lab1, var1. Usage:\n    -h  -  prints this message.\n    -l 1 or -l 2  -  exec program and print info about first or second semester\a");
 	exit(1)
 }
