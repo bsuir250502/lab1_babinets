@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int scan_int(char *message, int buffer int min, int max)
+int scan_int(char *message, int buffer, int min, int max)
 {
     char input[buffer];
 	int num
@@ -12,4 +12,11 @@ int scan_int(char *message, int buffer int min, int max)
         else return num;
     }
     return -1;
+}
+
+char scan_char(char *message, int buffer)
+{
+    char input[buffer];
+    printf("%s ", message);
+    return fgets(input, buffer, stdin);
 }

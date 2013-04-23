@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "custom_fun.h"
 
 #define num_of_stud 5
 #define num_of_sem1_exams 3
 #define num_of_sem2_exams 4
 
-struct stud_name
+typedef struct stud_name
 {
     char surname[20], name[15], patr[15];
     int sem;
@@ -29,87 +30,54 @@ void help();
 
 int main(char *argv[])
 {
-    marks[0].student.surname="Ivanov";
-    marks[0].student.name="Ivan";
-    marks[0].student.patr="Ivanovich";
-    marks[1].student.surname="Petrov";
-    marks[1].student.name="Petr";
-    marks[1].student.patr="Petrovich";
-    marks[2].student.surname="Sidorov";
-    marks[2].student.name="Ivan";
-    marks[2].student.patr="Pavlovich";
-    marks[3].student.surname="Mojako";
-    marks[3].student.name="Anton";
-    marks[3].student.patr="Vladimirovich";
-    marks[4].student.surname="Sheleg";
-    marks[4].student.name="Nikolay";
-    marks[4].student.patr="Borisovich";
-	switch(argv[1])
+	switch(*argv[1])
 	{
-		case -h: help(); break;
-		case -l: if(argv[2]<1 || argv[2]>2) exit(20); break;
+		case '-h': help(); break;
+		case '-l': if(argv[2]<"1" || argv[2]>"2") exit(20); break;
 		default: help();
 	}
-    char name_of_exams[2][36]= {"Math, Arithmetics, Programming",
-                            "Math, Programming, Physics, English"}, *tmp;
+    char name_of_exams[2][36] = {"Math, Arithmetics, Programming",
+								"Math, Programming, Physics, English"};
     int i, j, sem;
     stud_info marks[num_of_stud];
-    tmp=(char*)malloc(4);
     
     for(i=0; i<num_of_stud; i++)
     {
-        /*printf("Enter %d student's first name", i);
+        printf("Enter %d student's first name", i);
         fgets(marks[i].student.surname, 20, stdin);
         printf("Enter %d student's name", i);
         fgets(marks[i].student.name, 15, stdin);
         printf("Enter %d student's", i);
-        fgets(marks[i].student.patr, 15, stdin);*/
+        fgets(marks[i].student.patr, 15, stdin);
         printf("Enter %d student semester", i);
-		scan_int("\n", 4, 1, 2);
-        /*while(1)
-        {
-            fgets(tmp, 4, stdin);
-            if(atoi(tmp)<1 || atoi(tmp)>2) puts("Enter correct semestr number!");
-            else 
-            {
-                marks[i].student.sem=atoi(tmp);
-                break;
-            }
-        }*/
+		marks[i].student.sem=scan_int("\n", 4, 1, 2);
     }
-	scan_int("Enter semestr: ", 4, 1, 2);
-    /*printf("Enter semester: ");
-    while(1)
-    {
-        fgets(tmp, 4, stdin);
-        if(atoi(tmp)<1 || atoi(tmp)>2) puts("Enter correct semestr number!");
-        else 
-        {
-            sem=atoi(tmp);
-            break;
-        }
-    }*/
+	sem=scan_int("Enter semestr: ", 4, 1, 2);
     printf("Exams: %s\n", name_of_exams[sem]);
     for(i=0; i<num_of_stud; i++)
     {
         if(sem==marks[i].student.sem) 
         {
             printf("\n");
-            printf("Name: %s %s %s, Marks: ", marks[i].student.surname, marks[i].student.name, marks[i].student.patr);
             if(sem==1) 
                 for(j=0; j<num_of_sem1_exams; j++)
+				{
                     printf("%d", marks[i].exams.sem1_marks[j]);
+					printf("Name: %s %s %s, Marks: ", marks[i].student.surname, marks[i].student.name, marks[i].student.patr);
+				}
             else
-                for(j=0; j<num_of_sem1_exams; j++)
-                    printf("%d", marks[i].exams.sem1_marks[j]);
+                for(j=0; j<num_of_sem2_exams; j++)
+				{
+                    printf("%d", marks[i].exams.sem2_marks[j]);
+					printf("Name: %s %s %s, Marks: ", marks[i].student.surname, marks[i].student.name, marks[i].student.patr);
+				}
         }
-    }
-    
+    }  
     return 0;
 }
 
 void help()
 {
 	printf("Lab1, var1. Usage:\n    -h  -  prints this message.\n    -l 1 or -l 2  -  exec program and print info about first or second semester\a");
-	exit(1)
+	exit(1);
 }
