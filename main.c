@@ -30,14 +30,14 @@ void help();
 
 int main(char *argv[])
 {
-	switch(*argv[1])
-	{
-		case '-h': help(); break;
-		case '-l': if(argv[2]<"1" || argv[2]>"2") exit(20); break;
-		default: help();
-	}
+    switch(*argv[1])
+    {
+        case 'h': help(); break;
+        case 'l': break;
+        default: help();
+    }
     char name_of_exams[2][36] = {"Math, Arithmetics, Programming",
-								"Math, Programming, Physics, English"};
+                                "Math, Programming, Physics, English"};
     int i, j, sem;
     stud_info marks[num_of_stud];
     
@@ -50,9 +50,9 @@ int main(char *argv[])
         printf("Enter %d student's", i);
         fgets(marks[i].student.patr, 15, stdin);
         printf("Enter %d student semester", i);
-		marks[i].student.sem=scan_int("\n", 4, 1, 2);
+        marks[i].student.sem=scan_int("\n", 4, 1, 2);
     }
-	sem=scan_int("Enter semestr: ", 4, 1, 2);
+    sem=scan_int("Enter semestr: ", 4, 1, 2);
     printf("Exams: %s\n", name_of_exams[sem]);
     for(i=0; i<num_of_stud; i++)
     {
@@ -61,16 +61,16 @@ int main(char *argv[])
             printf("\n");
             if(sem==1) 
                 for(j=0; j<num_of_sem1_exams; j++)
-				{
+                {
                     printf("%d", marks[i].exams.sem1_marks[j]);
-					printf("Name: %s %s %s, Marks: ", marks[i].student.surname, marks[i].student.name, marks[i].student.patr);
-				}
+                    printf("Name: %s %s %s, Marks: ", marks[i].student.surname, marks[i].student.name, marks[i].student.patr);
+                }
             else
                 for(j=0; j<num_of_sem2_exams; j++)
-				{
+                {
                     printf("%d", marks[i].exams.sem2_marks[j]);
-					printf("Name: %s %s %s, Marks: ", marks[i].student.surname, marks[i].student.name, marks[i].student.patr);
-				}
+                    printf("Name: %s %s %s, Marks: ", marks[i].student.surname, marks[i].student.name, marks[i].student.patr);
+                }
         }
     }  
     return 0;
@@ -78,6 +78,6 @@ int main(char *argv[])
 
 void help()
 {
-	printf("Lab1, var1. Usage:\n    -h  -  prints this message.\n    -l 1 or -l 2  -  exec program and print info about first or second semester\a");
-	exit(1);
+    printf("Lab1, var1. Usage:\n    -h  -  prints this message.\n    -l 1 or -l 2  -  exec program and print info about first or second semester\a");
+    exit(1);
 }
