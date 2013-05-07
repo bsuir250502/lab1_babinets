@@ -5,7 +5,7 @@ extern "C" {
 #include <stdlib.h>
 #include "custom_fun.h"
 
-#define num_of_stud 2
+#define num_of_stud 5
 #define num_of_sem1_exams 3
 #define num_of_sem2_exams 4
 
@@ -37,7 +37,6 @@ int main(int argc ,char *argv[])
                                 "Math, Programming, Physics, English"};
     int i, j, sem;
     struct stud_info marks[num_of_stud];
-    //printf("%d", scan_int("Enter semestr: ", 1, 12));
     switch(*argv[1])
     {
         case 104: help(); break;
@@ -48,13 +47,13 @@ int main(int argc ,char *argv[])
     
     for(i=0; i<num_of_stud; i++)
     {
-        printf("Enter %d student's first name", i+1);
+        printf("Enter %d student's first name: ", i+1);
         fgets(marks[i].student.surname, 20, stdin);
-        printf("Enter %d student's name", i+1);
+        printf("Enter %d student's name: ", i+1);
         fgets(marks[i].student.name, 15, stdin);
-        printf("Enter %d student's", i+1);
+        printf("Enter %d student's patronymic: ", i+1);
         fgets(marks[i].student.patr, 15, stdin);
-        printf("Enter %d student semester", i+1);
+        printf("Enter %d student semester: ", i+1);
         marks[i].student.sem=scan_int("\n", 1, 2);
         printf("Enter %d student marks for: %s.\n", i+1, name_of_exams[marks[i].student.sem-1]);
         if(marks[i].student.sem==1)
@@ -64,7 +63,7 @@ int main(int argc ,char *argv[])
                 marks[i].exams.sem2_marks[j]=scan_int("", 0, 10);
     }
     sem=scan_int("Enter semestr:", 1, 2);
-    printf("Exams: %s\n", name_of_exams[sem]);
+    printf("Exams: %s\n", name_of_exams[sem-1]);
     for(i=0; i<num_of_stud; i++)
     {
         if(sem==marks[i].student.sem) 
