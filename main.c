@@ -1,3 +1,6 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
 #include <stdio.h>
 #include <stdlib.h>
 #include "custom_fun.h"
@@ -81,3 +84,7 @@ void help()
     printf("Lab1, var1. Usage:\n    -h  -  prints this message.\n    -l 1 or -l 2  -  exec program and print info about first or second semester\a");
     exit(1);
 }
+
+#ifdef __cplusplus
+}
+#endif
