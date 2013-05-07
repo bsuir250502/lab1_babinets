@@ -37,7 +37,7 @@ int main(int argc ,char *argv[])
                                 "Math, Programming, Physics, English"};
     int i, j, sem;
     struct stud_info marks[num_of_stud];
-    printf("%d", *argv[1]);
+    //printf("%d", scan_sem("Enter semestr: ", 1, 6));
     switch(*argv[1])
     {
         case 104: help(); break;
@@ -48,16 +48,16 @@ int main(int argc ,char *argv[])
     
     for(i=0; i<num_of_stud; i++)
     {
-        printf("Enter %d student's first name", i);
+        printf("Enter %d student's first name", i+1);
         fgets(marks[i].student.surname, 20, stdin);
-        printf("Enter %d student's name", i);
+        printf("Enter %d student's name", i+1);
         fgets(marks[i].student.name, 15, stdin);
-        printf("Enter %d student's", i);
+        printf("Enter %d student's", i+1);
         fgets(marks[i].student.patr, 15, stdin);
-        printf("Enter %d student semester", i);
-        marks[i].student.sem=scan_int("\n", 1, 2);
+        printf("Enter %d student semester", i+1);
+        marks[i].student.sem=scan_sem("\n", 1, 2);
     }
-    sem=scan_int("Enter semestr: ", 1, 2);
+    sem=scan_sem("Enter semestr:", 1, 2);
     printf("Exams: %s\n", name_of_exams[sem]);
     for(i=0; i<num_of_stud; i++)
     {

@@ -3,6 +3,6 @@
 
 #include <stdio.h>
 
-int scan_int(char *message, int min, int max);
+int scan_sem(char *message, int min, int max);
 
 #endif /* _CUSTOM_FUN_H_ */
