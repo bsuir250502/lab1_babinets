@@ -3,7 +3,7 @@
 int scan_int(char *message, int buffer, int min, int max)
 {
     char input[buffer];
-	int num
+	int num;
     printf("%s ", message);
     while(1)
     {
