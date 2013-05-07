@@ -5,7 +5,7 @@ extern "C" {
 #include <stdlib.h>
 #include "custom_fun.h"
 
-#define num_of_stud 5
+#define num_of_stud 2
 #define num_of_sem1_exams 3
 #define num_of_sem2_exams 4
 
@@ -37,7 +37,7 @@ int main(int argc ,char *argv[])
                                 "Math, Programming, Physics, English"};
     int i, j, sem;
     struct stud_info marks[num_of_stud];
-    //printf("%d", scan_sem("Enter semestr: ", 1, 6));
+    //printf("%d", scan_int("Enter semestr: ", 1, 12));
     switch(*argv[1])
     {
         case 104: help(); break;
@@ -55,30 +55,30 @@ int main(int argc ,char *argv[])
         printf("Enter %d student's", i+1);
         fgets(marks[i].student.patr, 15, stdin);
         printf("Enter %d student semester", i+1);
-        marks[i].student.sem=scan_sem("\n", 1, 2);
+        marks[i].student.sem=scan_int("\n", 1, 2);
+        printf("Enter %d student marks for: %s.\n", i+1, name_of_exams[marks[i].student.sem-1]);
+        if(marks[i].student.sem==1)
+            for(j=0; j<num_of_sem1_exams; j++)
+                marks[i].exams.sem1_marks[j]=scan_int("", 0, 10);
+        else for(j=0; j<num_of_sem2_exams; j++)
+                marks[i].exams.sem2_marks[j]=scan_int("", 0, 10);
     }
-    sem=scan_sem("Enter semestr:", 1, 2);
+    sem=scan_int("Enter semestr:", 1, 2);
     printf("Exams: %s\n", name_of_exams[sem]);
     for(i=0; i<num_of_stud; i++)
     {
         if(sem==marks[i].student.sem) 
         {
-            printf("\n");
+            printf("\nSurname: %sName: %sPatronymic: %s, Marks: ", marks[i].student.surname, marks[i].student.name, marks[i].student.patr);
             if(sem==1) 
                 for(j=0; j<num_of_sem1_exams; j++)
-                {
-                    printf("%d", marks[i].exams.sem1_marks[j]);
-                    printf("Name: %s %s %s, Marks: ", marks[i].student.surname, marks[i].student.name, marks[i].student.patr);
-                }
+                    printf("%d, ", marks[i].exams.sem1_marks[j]);
             else
                 for(j=0; j<num_of_sem2_exams; j++)
-                {
-                    printf("%d", marks[i].exams.sem2_marks[j]);
-                    printf("Name: %s %s %s, Marks: ", marks[i].student.surname, marks[i].student.name, marks[i].student.patr);
-                }
+                    printf("%d, ", marks[i].exams.sem2_marks[j]);
         }
     }  
-    return 0;
+    exit(0);
 }
 
 void help()

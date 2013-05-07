@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int scan_sem(char *message, int min, int max)
+
+int scan_int(char *message, int min, int max)
 {
     char input[1024];
     int num;
