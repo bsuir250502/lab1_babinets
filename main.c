@@ -9,40 +9,42 @@ extern "C" {
 #define num_of_sem1_exams 3
 #define num_of_sem2_exams 4
 
-typedef struct stud_name
+struct stud_name
 {
     char surname[20], name[15], patr[15];
     int sem;
 };
 
-typedef union
+union sem
 {
     int sem1_marks[num_of_sem1_exams];
     int sem2_marks[num_of_sem2_exams];
-} sem;    
+};    
 
 typedef struct stud_info
 {
-    stud_name student;
-    sem exams;
+    struct stud_name student;
+    union sem exams;
 } marks[num_of_stud];    
 
 
 char ins_stud_names();
 void help();
 
-int main(char *argv[])
+int main(int argc ,char *argv[])
 {
-    switch(*argv[1])
-    {
-        case 'h': help(); break;
-        case 'l': break;
-        default: help();
-    }
     char name_of_exams[2][36] = {"Math, Arithmetics, Programming",
                                 "Math, Programming, Physics, English"};
     int i, j, sem;
-    stud_info marks[num_of_stud];
+    struct stud_info marks[num_of_stud];
+    printf("%d", *argv[1]);
+    switch(*argv[1])
+    {
+        case 104: help(); break;
+        case 108: break;
+        default: help();
+    }
+
     
     for(i=0; i<num_of_stud; i++)
     {
@@ -53,9 +55,9 @@ int main(char *argv[])
         printf("Enter %d student's", i);
         fgets(marks[i].student.patr, 15, stdin);
         printf("Enter %d student semester", i);
-        marks[i].student.sem=scan_int("\n", 4, 1, 2);
+        marks[i].student.sem=scan_int("\n", 1, 2);
     }
-    sem=scan_int("Enter semestr: ", 4, 1, 2);
+    sem=scan_int("Enter semestr: ", 1, 2);
     printf("Exams: %s\n", name_of_exams[sem]);
     for(i=0; i<num_of_stud; i++)
     {
