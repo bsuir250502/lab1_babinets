@@ -1,13 +1,13 @@
-OBJ = main.o
+OBJ = main.o custom_fun.o
 CFLAGS = -Wall -std=c99
+BINARY = main
+all: $(BINARY)
 
-all: bin
-
-bin: $(OBJ)
-gcc $(CFLAGS) $(OBJ) -o bin
+$(BINARY): $(OBJ)
+gcc $(CFLAGS) $(OBJ) -o $(BINARY)
 
 %.o : %.c
     gcc $(CFLAGS) -c $<
 
 clean:
-    rm bin $(OBJ)
+    rm $(BINARY) $(OBJ)
