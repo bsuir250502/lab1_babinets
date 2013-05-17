@@ -82,7 +82,7 @@ int main(int argc ,char *argv[])
 
 void help()
 {
-    printf("Lab1, var1. Usage:\n    -h  -  prints this message.\n    -l 1 or -l 2  -  exec program and print info about first or second semester\a");
+    printf("Lab1, var1. Usage:\n    -h  -  prints this message.\n    -l -  exec program.\a");
     exit(1);
 }
 
