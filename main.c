@@ -8,10 +8,11 @@ extern "C" {
 #define num_of_stud 5
 #define num_of_sem1_exams 3
 #define num_of_sem2_exams 4
+#define string_size 20
 
 struct stud_name
 {
-    char surname[20], name[15], patr[15];
+    char surname[string_size], name[string_size], patr[string_size];
     int sem;
 };
 
@@ -47,12 +48,12 @@ int main(int argc ,char *argv[])
     
     for(i=0; i<num_of_stud; i++)
     {
-        printf("Enter %d student's first name: ", i+1);
-        fgets(marks[i].student.surname, 20, stdin);
+        printf("Enter %d student's surname: ", i+1);
+        fgets(marks[i].student.surname, string_size, stdin);
         printf("Enter %d student's name: ", i+1);
-        fgets(marks[i].student.name, 15, stdin);
+        fgets(marks[i].student.name, string_size, stdin);
         printf("Enter %d student's patronymic: ", i+1);
-        fgets(marks[i].student.patr, 15, stdin);
+        fgets(marks[i].student.patr, string_size, stdin);
         printf("Enter %d student semester: ", i+1);
         marks[i].student.sem=scan_int("\n", 1, 2);
         printf("Enter %d student marks for: %s.\n", i+1, name_of_exams[marks[i].student.sem-1]);
@@ -68,7 +69,7 @@ int main(int argc ,char *argv[])
     {
         if(sem==marks[i].student.sem) 
         {
-            printf("\nSurname: %sName: %sPatronymic: %s, Marks: ", marks[i].student.surname, marks[i].student.name, marks[i].student.patr);
+            printf("\nSurname: %sName: %sPatronymic: %sMarks: ", marks[i].student.surname, marks[i].student.name, marks[i].student.patr);
             if(sem==1) 
                 for(j=0; j<num_of_sem1_exams; j++)
                     printf("%d, ", marks[i].exams.sem1_marks[j]);
