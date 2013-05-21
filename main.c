@@ -28,8 +28,6 @@ typedef struct stud_info
     union sem exams;
 } marks[num_of_stud];    
 
-
-char ins_stud_names();
 void help();
 
 int main(int argc ,char *argv[])
